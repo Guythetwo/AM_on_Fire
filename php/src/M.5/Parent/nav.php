@@ -9,10 +9,9 @@
 <body>
     <nav>
         <ul class="nav">
-            <li class="li"><a href="#">Home</a></li>
-            <li class="li"><a href="#">About</a></li>
-            <li class="li"><a href="#">Blog</a></li>
-            <li class="li"><a href="#">Contact</a></li>
+            <li class="li"><a href="../Student/index.php">Student</a></li>
+            <li class="li"><a href="../Parent/index.php">Parent</a></li>
+            <li class="li"><a href="../Family/index.php">Family</a></li>
         </ul>
     </nav>
 </body>

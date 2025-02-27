@@ -35,9 +35,9 @@ if(isset($_POST['update_family'])){
     }
 }
 
-if(isset($_POST['delete_parent'])){
-    $Parent_id = $_POST["Parent_id"];
-    $sql = "DELETE FROM parent WHERE Parent_id = '$Parent_id'";
+if(isset($_POST['delete_family'])){
+    $Family_Id = $_POST["Family_Id"];
+    $sql = "DELETE FROM family WHERE Family_Id = '$Family_Id'";
     $result = mysqli_query($conn,$sql);
     if($result){
         echo "
