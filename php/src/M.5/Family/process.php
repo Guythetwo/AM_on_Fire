@@ -1,12 +1,11 @@
 <?php
 include "./db_conn.php";
 
-if(isset($_POST['Add_parent'])){
-    $First_Name = mysqli_real_escape_string($conn,$_POST['First_Name']);
-    $Last_Name = mysqli_real_escape_string($conn,$_POST['Last_Name']);
-    $DOB = $_POST['DOB'];
-    $sql = "INSERT INTO parent(First_Name,Last_Name,DOB)
-    VALUES('$First_Name','$Last_Name','$DOB')";
+if(isset($_POST['Add_family'])){
+    $Student_Id = mysqli_real_escape_string($conn,$_POST['Student_Id']);
+    $Parent_Id = mysqli_real_escape_string($conn,$_POST['Parent_Id']);
+    $sql = "INSERT INTO family(Student_Id,Parent_Id)
+    VALUES('$Student_Id','$Parent_Id')";
     $result = mysqli_query($conn,$sql);
     if($result){
         echo "
@@ -19,12 +18,11 @@ if(isset($_POST['Add_parent'])){
     }
 }
 
-if(isset($_POST['update_parent'])){
-    $Parent_id = $_POST["Parent_id"];
-    $First_Name = mysqli_real_escape_string($conn,$_POST['First_Name']);
-    $Last_Name = mysqli_real_escape_string($conn,$_POST['Last_Name']);
-    $DOB = $_POST['DOB'];
-    $sql = "UPDATE parent SET First_Name = '$First_Name',Last_Name = '$Last_Name',DOB = '$DOB' WHERE Parent_id = '$Parent_id'";
+if(isset($_POST['update_family'])){
+    $Family_Id = $_POST["Family_Id"];
+    $Student_Id = mysqli_real_escape_string($conn,$_POST['Student_Id']);
+    $Parent_Id = mysqli_real_escape_string($conn,$_POST['Parent_Id']);
+    $sql = "UPDATE family SET Student_Id = '$Student_Id',Parent_Id = '$Parent_Id' WHERE Family_Id = '$Family_Id'";
     $result = mysqli_query($conn,$sql);
     if($result){
         echo "
