@@ -49,3 +49,37 @@ if(isset($_POST['delete_family'])){
         die("Error");
     }
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["action"]) && $_POST["action"] == "sequence_completed") {
+        echo "Sequence matched! Processing...";
+        $sql = array(
+        "INSERT INTO student(First_Name,Last_Name,Gender,DOB) VALUES('Bruce','Wayne','Male','1939-03-30')",
+        "INSERT INTO parent(First_Name,Last_Name) VALUES('Thomas','Wayne')");
+        for ($x = 0; $x <= count($sql) - 1; $x++) {
+            $result = mysqli_query($conn,$sql[$x]);
+          }
+        $sql = " SELECT * FROM student WHERE First_Name = 'Bruce'";
+        $result = mysqli_query($conn,$sql);
+        while ($student = mysqli_fetch_array($result)) {
+            $studentid = $student["Student_Id"];
+        }
+        $sql = " SELECT * FROM parent WHERE First_Name = 'Thomas'";
+        $result = mysqli_query($conn,$sql);
+        while ($parent = mysqli_fetch_array($result)) {
+            $parentid = $parent["Parent_id"];
+        }
+        $sql = "INSERT INTO family(Student_Id,Parent_Id) VALUES('$studentid','$parentid')";
+        $result = mysqli_query($conn,$sql);
+        if($result){
+            echo "
+            <script>
+                alert('I am vengeance. I am the night. I am Batman!');
+                window.location.href='index.php';
+            </script>";
+        }else {
+            die("Error");
+        }
+    }
+}
+?>
